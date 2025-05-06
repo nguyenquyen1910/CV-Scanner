@@ -1,0 +1,8 @@
+{
+  "education_score": 70,
+  "experience_score": 90,
+  "skill_score": 70,
+  "total_score": 76,
+  "comment": "Điểm mạnh: Ứng viên có nền tảng học vấn phù hợp (Cử nhân CNTT), kinh nghiệm thực chiến 9+ năm trong lĩnh vực DevOps/SysOps tại các công ty lớn (Viettel, Alticast, SmartOSC), đáp ứng và vượt yêu cầu 4 năm của vị trí Senior DevOps Engineer. Kỹ năng kỹ thuật đa dạng: AWS, Azure, Docker, Kubernetes, Terraform, CI/CD (Jenkins, GitLab CI), scripting (bash, Python), monitoring (Prometheus, ELK), cùng nhiều dự án lớn vận hành thực tế. Điểm yếu: Thiếu chứng chỉ quốc tế chuyên sâu về DevOps/Cloud (AWS, Azure), trình độ tiếng Anh ở mức trung bình, chưa thể hiện rõ về cloud security best practices, một số kỹ năng như CloudFormation, Bamboo, GCP, CircleCI chưa xuất hiện. Mức độ phù hợp: Rất phù hợp với vị trí Senior DevOps Engineer, đề xuất phỏng vấn trực tiếp. Nếu chưa phù hợp, ứng viên có thể cân nhắc vai trò Middle DevOps/Cloud Engineer tại các doanh nghiệp lớn. Gợi ý phát triển: Bổ sung chứng chỉ AWS/Azure, nâng cao tiếng Anh giao tiếp, đào sâu về bảo mật cloud và các công cụ mới như GCP, CloudFormation.",
+  "analyzed_at": "2025-05-03T22:47:52.300444"
+}

@@ -1,0 +1,170 @@
+{
+  "education": [
+    {
+      "school": "greenwich university",
+      "degree": "bachelor's degree",
+      "major": "information technology",
+      "start_year": "2019",
+      "end_year": "03-2024",
+      "description": "graduated in march 2024 with a bachelor's degree in information technology from greenwich university. developed a solid foundation in it principles and practical skills through various projects and coursework.",
+      "grade": ""
+    }
+  ],
+  "experience": [
+    {
+      "company": "fpt software",
+      "position": "software developer",
+      "start_date": "01-01-2023",
+      "end_date": "30-06-2023",
+      "description": "During the development of a Netflix-like movie viewing platform, involved in all stages of the life cycle, using angular combined with javascript to create the application as part of a team project. Roles included login and account management, performing login functions, managing user accounts, handling forgotten passwords, supporting updating personal information, managing the logout process; live streaming and viewing content including live streaming, pausing, fast forwarding, slow rewinding."
+    },
+    {
+      "company": "fpt software",
+      "position": "software developer",
+      "start_date": "01-01-2024",
+      "end_date": "30-06-2024",
+      "description": "As a fresher C automotive, responsible for testing a small project involving ensuring the stability and quality of the application through creating and executing test cases, meticulously recording and reporting any errors discovered."
+    },
+    {
+      "company": "cty tnhh truong thanh",
+      "position": "software development",
+      "start_date": "",
+      "end_date": "present",
+      "description": "Working with kotlin language related to software development on mobile applications. Project involved a sports news reading application developed using spring framework combined with kotlin. The application has three main components: news, news videos, and settings management. Users can read news on 18 different topics including homepage and current events, updated directly from the news site https://vnexpress.net."
+    }
+  ],
+  "skill": [
+    {
+      "skill_name": "C",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "JavaScript",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "Kotlin",
+      "level": null,
+      "description": "Related to software development on mobile applications"
+    },
+    {
+      "skill_name": "Angular",
+      "level": null,
+      "description": "Used combined with JavaScript to create a Netflix-like movie viewing platform, including login/account management and live streaming features"
+    },
+    {
+      "skill_name": "Express.js",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "React.js",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "Spring",
+      "level": null,
+      "description": "Used combined with Kotlin to develop a sports news reading application"
+    },
+    {
+      "skill_name": "Bootstrap",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "Firebase",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "HTML",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "CSS",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "Eclipse",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "Visual Paradigm",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "Git",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "Visual Studio Code",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "MongoDB",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "MySQL",
+      "level": null,
+      "description": null
+    },
+    {
+      "skill_name": "English",
+      "level": "B1",
+      "description": null
+    }
+  ],
+  "certificate": [],
+  "project": [
+    {
+      "name": "Netflix-like movie viewing platform",
+      "role": "Team member - Login and account management, Live streaming and viewing content",
+      "start_date": "01-2023",
+      "end_date": "06-2023",
+      "description": "Developed a Netflix-like movie viewing platform using Angular combined with JavaScript. Responsibilities included implementing login functions, managing user accounts, handling forgotten passwords, updating personal information, logout process, and live streaming features such as pausing, fast forwarding, and slow rewinding.",
+      "technologies": "Angular, JavaScript",
+      "url": ""
+    },
+    {
+      "name": "Sports news reading application",
+      "role": "Software Developer",
+      "start_date": "",
+      "end_date": "Present",
+      "description": "Developed a sports news reading mobile application using Kotlin and Spring framework. The application features news, news videos, and settings management. It allows users to read news on 18 different topics including the homepage and current events, updated directly from the news site https://vnexpress.net.",
+      "technologies": "Kotlin, Spring",
+      "url": "https://vnexpress.net"
+    },
+    {
+      "name": "Small testing project at FPT Software",
+      "role": "Software Developer - Testing",
+      "start_date": "",
+      "end_date": "",
+      "description": "Responsible for testing a small project to ensure application stability and quality by creating and executing test cases, and recording and reporting errors.",
+      "technologies": "",
+      "url": ""
+    }
+  ],
+  "base_information": [
+    {
+      "fullname": "Vu Hoang Son",
+      "email": "hsonv2307@gmail.com",
+      "gender": "Male",
+      "date_of_birth": "23-07-2001",
+      "phone": "0985586201",
+      "address": "Dinh Cong, Hoang Mai, Hanoi",
+      "summary": "Hoang Son is a recent graduate with a Bachelor’s degree in Information Technology, eager to contribute and grow within a dynamic work environment that fosters career development. He demonstrates strong technical skills in languages such as C, JavaScript, and Kotlin, and frameworks including Angular and Spring. His experience spans independent and team projects, showing responsibility in software development and testing roles. He values continuous learning, feedback from experts, and is committed to ongoing self-improvement. His attitude reflects motivation, adaptability, and a professional approach to leveraging both technical and soft skills in practical settings."
+    }
+  ],
+  "raw_text": "Vu Hoang Son Email: hsonv2307@gmail.com Phone: 0985586201 Gender: Male Date of birth: 23 07 2001 Address: Dinh Cong, Hoang Mai, Hanoi Profile Hello, I am Hoang Son, a new graduatelooking to contribute and develop in adynamic working environment that promotescareer development. My expertise lies inlanguages like C and JavaScript, where Ileverage my strong problem-solving skills andpassion for technology. I aim to apply theknowledge and soft skills gained from bothmy studies and past experiences to contributeeffectively, whether it is independent work orteamwork skills. I also always value learningand receiving opinions from experts and amcommitted to constantly improving my skills. 2019 - 2023 Jan 2024 - Jun 2024 Mar 2022 - Jul 2022 Greenwich University , INFORMATION TECHNOLOGY \"Graduated in March 2024 with a Bachelor s degree in Information Technology from Greenwich University. Developed a solid foundation in IT principles and practical skills through various projects and coursework.\" FPT Software , Software Developer As a Fresher C Automotive, I am responsible for testing a small project. This involvesensuring the stability and quality of the application through tasks such as creating andexecuting test cases and meticulously recording and reporting any errors discovered. In addition, from January 2023 to June 2023 also at FPT Software. During thedevelopment of a Netﬂix-like movie viewing platform, I was involved in all stagesof the life cycle, where I used Angular combined with Javascript to create thatapplication, as it was a team project So for my part, I take on the following roles: - Login and account management: Perform login functions, manage useraccounts, handle forgotten passwords, support updating personal informationand manage the logout process. - Live streaming and viewing content: This part, in my opinion, is the mostdifﬁcult in terms of live streaming, pausing, fast forwarding, slow rewinding, etc. CTY TNHH Truong Thanh , Software Development - At this time, I am working with the Kotlin language, which is related to software development on mobile applications. - My project revolves around a sports news reading application. - I utilized the spring framework combined with Kotlin to develop this application. - The application comprises three main components: news, news videos, and settings management. - Users can read news on 18 different topics including the homepage, current events, etc., updated directly from the news site https: vnexpress.net . Programming Languages : C , JavaScript, Kotlin. Framework : Angular, Express.js, React.js, Spring. Technologies : Bootstrap, Firebase, HTML, CSS. Development Tools : Eclipse, Visual Paradigm, Git, Visual Studio Code. Database : MongoDB, MySQL. Language : English (Level: B1) Stay updated with programming languages through blogs, Stack Overﬂow, and C references. Enhance English skills with movies and music. EDUCATION WORK EXPERIENCE SKILLS INTERESTS topcv.vn"
+}
