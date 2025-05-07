@@ -1,8 +1,8 @@
 {
-  "education_score": 70,
+  "education_score": 90,
   "experience_score": 90,
   "skill_score": 70,
-  "total_score": 76,
-  "comment": "Điểm mạnh: Ứng viên có nền tảng học vấn phù hợp (Cử nhân CNTT), kinh nghiệm thực chiến 9+ năm trong lĩnh vực DevOps/SysOps tại các công ty lớn (Viettel, Alticast, SmartOSC), đáp ứng và vượt yêu cầu 4 năm của vị trí Senior DevOps Engineer. Kỹ năng kỹ thuật đa dạng: AWS, Azure, Docker, Kubernetes, Terraform, CI/CD (Jenkins, GitLab CI), scripting (bash, Python), monitoring (Prometheus, ELK), cùng nhiều dự án lớn vận hành thực tế. Điểm yếu: Thiếu chứng chỉ quốc tế chuyên sâu về DevOps/Cloud (AWS, Azure), trình độ tiếng Anh ở mức trung bình, chưa thể hiện rõ về cloud security best practices, một số kỹ năng như CloudFormation, Bamboo, GCP, CircleCI chưa xuất hiện. Mức độ phù hợp: Rất phù hợp với vị trí Senior DevOps Engineer, đề xuất phỏng vấn trực tiếp. Nếu chưa phù hợp, ứng viên có thể cân nhắc vai trò Middle DevOps/Cloud Engineer tại các doanh nghiệp lớn. Gợi ý phát triển: Bổ sung chứng chỉ AWS/Azure, nâng cao tiếng Anh giao tiếp, đào sâu về bảo mật cloud và các công cụ mới như GCP, CloudFormation.",
-  "analyzed_at": "2025-05-03T22:47:52.300444"
+  "total_score": 80,
+  "comment": "Ứng viên có nền tảng học vấn vững chắc với bằng Cử nhân CNTT phù hợp hoàn toàn với yêu cầu, cùng hơn 6 năm kinh nghiệm thực tế phát triển backend với Python, từng đảm nhận vị trí Senior và Technical Leader ở nhiều công ty, đáp ứng vượt yêu cầu về kinh nghiệm. Kỹ năng Python, quản trị cơ sở dữ liệu (PostgreSQL, MSSQL), cloud (AWS, GCP), CI/CD (GitLab, Docker, Kubernetes) đều phù hợp, tuy chưa thể hiện mức thành thạo cao và còn thiếu kỹ năng Java cũng như chưa có chứng chỉ chuyên môn. Ứng viên phù hợp tốt với vị trí Back-End Developer (Python), đặc biệt nếu tập trung phát triển thêm về Java, kỹ năng AI/cloud nâng cao và lấy chứng chỉ quốc tế sẽ gia tăng lợi thế cạnh tranh trong tương lai.",
+  "analyzed_at": "2025-05-07T16:11:29.981995"
 }

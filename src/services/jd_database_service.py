@@ -24,10 +24,13 @@ class JDDatabaseService:
         self.db.add(jd)
         self.db.commit()
         self.db.refresh(jd)
-        return jd.id
+        return jd
 
     def get_jd_by_id(self, jd_id: int) -> Optional[JD]:
         return self.db.query(JD).filter(JD.id == jd_id).first()
 
     def get_jd_by_title(self, title: str) -> Optional[JD]:
         return self.db.query(JD).filter(JD.title == title).first()
+
+    def get_all_jd(self):
+        return self.db.query(JD).all()

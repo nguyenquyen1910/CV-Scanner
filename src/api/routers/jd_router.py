@@ -17,6 +17,16 @@ async def save_jd(jd_data: dict, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@router.get("/all_jds")
+async def get_all_jds(db: Session = Depends(get_db)):
+    try:
+        jd_service = JDService(db)
+        jds = jd_service.get_all_jd()
+        return jds
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @router.get("/{jd_id}")
 async def get_jd(jd_id: int, db: Session = Depends(get_db)):
     try:

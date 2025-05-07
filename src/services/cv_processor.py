@@ -74,7 +74,6 @@ class CVProcessor:
                 "certificate": certificate_list,
                 "project": project_list,
                 "base_information": base_information,
-                "raw_text": clean_text,
             }
             return result
         except Exception as e:

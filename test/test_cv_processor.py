@@ -10,7 +10,7 @@ def test_cv_processor():
     endpoint = "https://models.github.ai/inference"
     model = "openai/gpt-4.1-mini"
 
-    file_path = "uploads\cv_test\cv_test.pdf"
+    file_path = "uploads\cv_test\cv_mid_python.pdf"
 
     processor = CVProcessor(file_path, api_key, endpoint, model)
     result = processor.process()

@@ -76,7 +76,6 @@ class JDProcessor:
                 "education_requirements": jd_data.get("education_requirements", ""),
                 "experience_requirements": jd_data.get("experience_requirements", ""),
                 "skill_requirements": jd_data.get("skill_requirements", ""),
-                "raw_text": clean_text,
             }
             return result
 

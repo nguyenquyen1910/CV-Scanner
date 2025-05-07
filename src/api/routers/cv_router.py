@@ -38,14 +38,11 @@ async def get_cv(cv_id: int, db: Session = Depends(get_db)):
 
 @router.get("/")
 async def list_cvs(
-    skip: int = 0,
-    limit: int = 10,
-    search: Optional[str] = None,
     db: Session = Depends(get_db),
 ):
     try:
         cv_service = CVDatabaseService(db)
-        cvs = cv_service.list_cvs(skip, limit, search)
+        cvs = cv_service.get_all_cvs()
         return cvs
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

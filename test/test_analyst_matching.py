@@ -4,6 +4,7 @@ import pytest
 import json
 from datetime import datetime
 
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from src.services.analyst_matching_service import AnalystMatchingService
 from src.database.database import get_db
@@ -18,7 +19,7 @@ def test_analyze_cv_jd():
     service = AnalystMatchingService(db, api_key, endpoint, model)
 
     try:
-        result = service.analyze_cv_jd(cv_id=2, jd_id=3)
+        result = service.analyze_cv_jd(cv_id=4, jd_id=5)
 
         # Kiểm tra kết quả trả về
         assert result is not None, "Kết quả phân tích không được trả về"
@@ -50,6 +51,8 @@ def test_analyze_cv_jd():
             "test/result_jsons/result_analyst_test.json", "w", encoding="utf-8"
         ) as f:
             json.dump(result_dict, f, ensure_ascii=False, indent=2)
+
+        
     except Exception as e:
         pytest.fail(f"Test thất bại với lỗi: {str(e)}")
 

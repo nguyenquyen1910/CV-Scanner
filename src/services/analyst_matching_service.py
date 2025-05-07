@@ -11,6 +11,7 @@ from src.models.certificate import Certificate
 from src.models.project import Project
 import json
 from datetime import datetime
+import tiktoken
 
 
 class AnalystMatchingService:
@@ -61,49 +62,40 @@ class AnalystMatchingService:
 
             ### Định dạng đầu vào:
             CV và JD đều ở định dạng JSON với cấu trúc sau:
-            - CV: chứa các trường `base_information`, `education`, `skills`, `experience`, `projects`, `certificates`
-            - JD: chứa các trường `job_title`, `category`, `level`, `required_education`, `experience_years`, `required_skills`, `optional_skills`, `required_certificates`
+            - CV: `base_information`, `education, skills`, `experience`, `projects`, `certificates`
+            - JD: `job_title`, `level`, `required_education, experience_years, required_skills, required_certificates
 
             ### Hướng dẫn đánh giá chi tiết:
 
             1. **Thông tin cơ bản (Basic Information)**:
-            - Sử dụng `base_information.summary` để đánh giá sự phù hợp với `job_title` và `category` của JD 
+            - Sử dụng `base_information.summary` để đánh giá sự phù hợp với `job_title` của JD 
             - Không tính điểm cho phần này, nhưng đưa mục tiêu nghề nghiệp và tư duy vào nhận xét
             - Nếu `base_information.summary` không được cung cấp, đánh giá dựa trên thông tin từ các trường khác
 
             2. **Học vấn (Education)**:
             - So sánh `education` với `required_education` (loại bằng cấp, lĩnh vực)
             - Tính điểm (0-100):
-                - +60 điểm nếu bằng cấp và lĩnh vực khớp chính xác
-                - +30 điểm nếu lĩnh vực liên quan
-                - +10 điểm cho thành tích (ví dụ: GPA cao, bằng khen)
-                - +0 điểm nếu không có học vấn liên quan
+                - +60: Bằng cấp và lĩnh vực khớp chính xác
+                - +30: Lĩnh vực liên quan
+                - +10: Thành tích học tập nổi bật
             - Nếu CV có nhiều bằng cấp, ưu tiên bằng có liên quan nhất đến vị trí công việc
             - **Quy tắc so khớp lĩnh vực**:
                 - Lĩnh vực CNTT: Khoa học máy tính, Kỹ thuật phần mềm, Công nghệ thông tin, Khoa học dữ liệu, An ninh mạng
-                - Lĩnh vực Kỹ thuật: Kỹ thuật điện tử, Kỹ thuật cơ khí, Kỹ thuật viễn thông
                 - Nếu JD yêu cầu lĩnh vực cụ thể (ví dụ: Khoa học máy tính) nhưng CV có lĩnh vực liên quan (ví dụ: Kỹ thuật phần mềm), tính +30 điểm
 
             3. **Kinh nghiệm (Experience)**:
             - Tính tổng số năm kinh nghiệm từ `experience` dựa vào `start_date` và `end_date`
                 - Nếu `end_date` là "Hiện tại" hoặc "Present", sử dụng ngày hiện tại 
-                - Quy đổi tháng làm việc thành năm (số tháng/12)
             - So sánh với `experience_years` trong JD
-            - Kiểm tra mức độ liên quan của `position`, `responsibilities`, và `achievements`
             - Tính điểm (0-100):
-                - +10 điểm cho mỗi năm kinh nghiệm liên quan, tối đa 50 điểm
-                - +30 điểm nếu kinh nghiệm đáp ứng/vượt quá `experience_years`
-                - +20 điểm nếu `position` bao gồm "Senior" hoặc "Lead" (với JD cấp độ Senior)
-                - +10 điểm cho kinh nghiệm làm việc ở công ty lớn/nổi tiếng trong ngành
-                - +0 điểm nếu không liên quan
+                - +10 điểm/năm kinh nghiệm liên quan (tối đa 50)
+                - +30: Đáp ứng/vượt yêu cầu năm kinh nghiệm
+                - +20: Vị trí Senior/Lead (với JD cấp Senior)
+                - +10: Kinh nghiệm ở công ty lớn/nổi tiếng
             - Nếu có nhiều vị trí kinh nghiệm, ưu tiên các vị trí gần đây và liên quan hơn
-            - Đánh giá tính phù hợp của trách nhiệm công việc (`responsibilities`) với yêu cầu JD
 
             4. **Kỹ năng (Skills)**:
-            - So sánh `skills` và `projects.technologies` với `required_skills` và `optional_skills`
-            - Sử dụng `proficiency` (Beginner=1, Intermediate=2, Advanced=3, Expert=4, Không xác định=0)
-            - Một kỹ năng được xem là khớp nếu `proficiency` trong CV đáp ứng/vượt quá yêu cầu của JD
-            - Ưu tiên 2 `technologies` đầu tiên trong danh sách `technologies` của mỗi dự án, vì chúng thường là kỹ năng chính
+            - So sánh kỹ năng trong CV với JD, đánh giá mức độ thành thạo (Beginner=1 → Expert=4)
             - **Tính điểm (0-100)**:
                 - +15 điểm cho mỗi `required_skill` phù hợp, tối đa 60 điểm
                 - +5 điểm cho mỗi `optional_skill` phù hợp, tối đa 20 điểm
@@ -111,63 +103,36 @@ class AnalystMatchingService:
                 - +10 điểm cho kỹ năng có nhiều giá trị `source` (thể hiện qua nhiều nguồn)
             - **Xử lý đồng nghĩa**: 
                 - Nhận diện các kỹ năng đồng nghĩa (VD: "JavaScript" và "JS", "ReactJS" và "React")
-                - Các kỹ năng trong cùng một họ có thể được tính là liên quan (VD: "React" trong CV được coi là liên quan đến "React Native" trong JD)
-            - Xem xét cả độ mới của kỹ năng (kỹ năng cập nhật gần đây có thể được ưu tiên hơn)
+                - Các kỹ năng trong cùng một họ có thể được tính là liên quan
 
             5. **Chứng chỉ (Certificates)**:
-            - So khớp `certificates` với `required_certificates` (không phân biệt hoa/thường)
             - Tính điểm (0-100):
-                - +25 điểm cho mỗi chứng chỉ khớp, tối đa 50 điểm
-                - +10 điểm cho chứng chỉ có `skills` khớp với `required_skills`, tối đa 20 điểm
-                - +15 điểm cho chứng chỉ cấp cao (Advanced/Professional)
-                - +15 điểm cho chứng chỉ cập nhật (trong vòng 3 năm gần đây)
-                - +0 điểm nếu không có khớp
+                - +25 điểm/chứng chỉ khớp (tối đa 50)
+                - +10: Chứng chỉ có kỹ năng khớp với yêu cầu (tối đa 20)
+                - +15: Chứng chỉ cấp cao hoặc cập nhật (<3 năm)
             - **Xử lý đồng nghĩa chứng chỉ**:
-                - Nhận diện các tên chứng chỉ khác nhau nhưng cùng giá trị (VD: "AWS Solutions Architect" và "AWS Certified Solutions Architect")
+                - Nhận diện các tên chứng chỉ khác nhau nhưng cùng giá trị 
 
             6. **Tổng điểm (Total Score)**:
-            - **Cho Senior/Middle**: 
+            - **Senior/Middle**: 
                 - `total_score` = (0.25 * `education_score`) + (0.35 * `experience_score`) + (0.30 * `skill_score`) + (0.10 * `certificate_score`)
-            - **Cho Junior**: 
+            - **Junior**: 
                 - `total_score` = (0.25 * `education_score`) + (0.20 * `experience_score`) + (0.45 * `skill_score`) + (0.10 * `certificate_score`)
-            - **Cho Intern/Fresher**:
+            - **Intern/Fresher**:
                 - `total_score` = (0.30 * `education_score`) + (0.10 * `experience_score`) + (0.50 * `skill_score`) + (0.10 * `certificate_score`)
             - Điều chỉnh ±10 điểm cho các yếu tố đặc biệt:
-                - +5-10 điểm cho thành tích nổi bật (giải thưởng, dự án GitHub nổi bật)
-                - -5-10 điểm cho thiếu kỹ năng bắt buộc hoặc đòi hỏi đào tạo nhiều
+                - +5->10 điểm cho thành tích nổi bật
+                - -5->10 điểm cho thiếu kỹ năng bắt buộc
             - Giới hạn trong khoảng 0-100
             - **Ngưỡng phân loại**:
-                - Senior: ≥70
-                - Middle: ≥50
-                - Junior: ≥30
-                - Intern/Fresher: ≥20
+                - Phân loại: Senior (≥70), Middle (≥50), Junior (≥30), Intern/Fresher (≥20)
 
             7. **Nhận xét (Comment)**:
             - Cung cấp nhận xét ngắn gọn (80-120 từ) có cấu trúc:
-                - **Điểm mạnh**: Kỹ năng, kinh nghiệm, học vấn, chứng chỉ, thành tích phù hợp
-                - **Điểm yếu**: Kỹ năng, kinh nghiệm hoặc chứng chỉ còn thiếu
-                - **Mức độ phù hợp**: Phù hợp với `level` và `category` của JD, kèm khuyến nghị
-            - Sử dụng các từ khóa chính (tên kỹ năng, tiêu đề JD) để tối ưu hóa tìm kiếm
-            - Cung cấp đề xuất vị trí thay thế nếu ứng viên không phù hợp với vị trí hiện tại
+                - Điểm mạnh nổi bật của ứng viên
+                - Điểm còn thiếu hoặc cần cải thiện so với yêu cầu JD.
+                - Đánh giá mức độ phù hợp tổng thể với vị trí JD.
             - Gợi ý các lĩnh vực cần phát triển để ứng viên phù hợp hơn trong tương lai
-
-            ### Ví dụ cách tính điểm:
-
-            **Ví dụ tính điểm Học vấn:**
-            - JD yêu cầu: Cử nhân Khoa học máy tính
-            - CV có: Cử nhân Kỹ thuật phần mềm, GPA 3.8/4.0
-            - Điểm: 30 (lĩnh vực liên quan) + 10 (GPA cao) = 40/100
-
-            **Ví dụ tính điểm Kinh nghiệm:**
-            - JD yêu cầu: 3 năm kinh nghiệm DevOps
-            - CV có: 2 năm DevOps Engineer, 1 năm System Admin
-            - Điểm: 20 (2 năm DevOps) + 10 (1 năm System Admin) + 0 (chưa đạt yêu cầu 3 năm) = 30/100
-
-            **Ví dụ tính điểm Kỹ năng:**
-            - JD yêu cầu: Docker, Kubernetes, AWS, CI/CD
-            - JD tuỳ chọn: Terraform, Python
-            - CV có: Docker (Expert), Kubernetes (Intermediate), AWS (Advanced), Python (Advanced), Git (Advanced)
-            - Điểm: 45 (3/4 required skills) + 5 (1/2 optional skills) + 0 (không có technologies trong projects) = 50/100
 
             CV:
             {cv_text}
@@ -181,9 +146,14 @@ class AnalystMatchingService:
                 "skill_score": điểm từ 0-100,
                 "certificate_score": điểm từ 0-100,
                 "total_score": điểm từ 0-100 (tổng điểm dựa trên education_score, experience_score, skill_score, certificate_score và kiến thức tổng thể của ứng viên so với yêu cầu JD),
-                "comment": "Đánh giá chi tiết về kiến thức, kinh nghiệm, kỹ năng và sự phù hợp của ứng viên với công ty"
+                "comment": "Đánh giá chi tiết về kiến thức, kinh nghiệm, kỹ năng và sự phù hợp của ứng viên với công ty, những điểm công ty đánh giá chưa cao"
             }}
         """
+
+        enc = tiktoken.encoding_for_model("gpt-4")
+        total_text = prompt + cv_text + jd_text
+        num_tokens = len(enc.encode(total_text))
+        print("Số tokens gửi lên model:", num_tokens)
 
         result = self.llm_extractor.analyst_result(prompt, cv_text, jd_text)
 
@@ -202,6 +172,9 @@ class AnalystMatchingService:
         self.db.add(analyst_result)
         self.db.commit()
         self.db.refresh(analyst_result)
+        print("Prompt:", len(prompt))
+        print("CV text:", len(cv_text))
+        print("JD text:", len(jd_text))
 
         return analyst_result
 
@@ -379,6 +352,12 @@ class AnalystMatchingService:
         )
 
         return result
+
+    def save_analyst_result(self, analyst_result: AnalystResult):
+        self.db.add(analyst_result)
+        self.db.commit()
+        self.db.refresh(analyst_result)
+        return analyst_result
 
     def get_all_analyst_results(self) -> List[AnalystResult]:
         return self.db.query(AnalystResult).all()

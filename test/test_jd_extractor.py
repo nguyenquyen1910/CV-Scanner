@@ -10,7 +10,7 @@ def test_jd_extractor():
     endpoint = "https://models.github.ai/inference"
     model = "openai/gpt-4.1-mini"
 
-    file_path = "uploads\jd_test\jd_test_foxai.docx"
+    file_path = "uploads\jd_test\python_middle_jd.docx"
 
     processor = JDProcessor(file_path, api_key, endpoint, model)
     result = processor.process()

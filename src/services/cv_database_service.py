@@ -100,3 +100,6 @@ class CVDatabaseService:
 
     def get_cv_by_id(self, cv_id: int):
         return self.db.query(CV).filter(CV.id == cv_id).first()
+    
+    def get_all_cvs(self):
+        return self.db.query(CV).all()

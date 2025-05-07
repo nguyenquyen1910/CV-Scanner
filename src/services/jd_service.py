@@ -23,5 +23,8 @@ class JDService:
         self.db.commit()
         self.db.refresh(jd)
 
+    def get_all_jd(self):
+        return self.db.query(JobDescription).all()
+
     def get_jd_by_id(self, jd_id: int):
         return self.db.query(JobDescription).filter(JobDescription.id == jd_id).first()
