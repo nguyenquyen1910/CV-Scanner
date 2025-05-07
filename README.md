@@ -285,7 +285,7 @@ Vui lòng tạo issue hoặc PR trên Github để cùng phát triển dự án.
 
 ## 📬 Liên hệ
 
-- **Email:** your.email@example.com
+- **Email:** jrnguyen14@gmail.com
 - **Github:** [Nguyen Quyen](https://github.com/nguyenquyen1910)
 
 ---
