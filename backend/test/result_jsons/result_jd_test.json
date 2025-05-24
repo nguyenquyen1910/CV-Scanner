@@ -1,0 +1,9 @@
+{
+  "title": "Senior Python Developer",
+  "company": "WATA TECH",
+  "description": "Design and develop efficient, scalable OCR solutions using Python. Integrate open-source and commercial OCR tools such as Tesseract, EasyOCR, Google Vision, AWS Textract, or ABBYY. Apply image pre-processing techniques (e.g., denoising, deskewing, binarization) to enhance OCR accuracy. Process and extract structured data from scanned documents, PDFs, and images. Collaborate with cross-functional teams, including data scientists and engineers, to deliver complete OCR pipelines. Ensure reliability, accuracy, and performance of OCR workflows through testing, logging, and optimization.",
+  "requirements": "Strong programming skills in Python. Proven experience with OCR tools and libraries (e.g., Tesseract, OpenCV, EasyOCR). Solid understanding of image processing and document parsing techniques. Familiarity with handling different file formats (e.g., PDFs, TIFFs, JPEGs) and OCR challenges. Knowledge of version control (Git), containerization (Docker), and cloud platforms (AWS, GCP, or Azure). Excellent problem-solving abilities and attention to detail. Preferred Qualifications: Experience deploying OCR solutions in production environments. Background in computer vision, NLP, or machine learning. Understanding of document layout analysis and structured data extraction.",
+  "education_requirements": "",
+  "experience_requirements": "Proven experience with OCR tools and libraries (e.g., Tesseract, OpenCV, EasyOCR)",
+  "skill_requirements": "Object Oriented Programming (OOP), Data Structures and Algorithms, Version Control (Git), Testing (Unit Testing, Integration Testing), Python (proficient in at least one framework like Django, Flask, or FastAPI), image processing, document parsing, handling file formats (PDFs, TIFFs, JPEGs), containerization (Docker), cloud platforms (AWS, GCP, Azure), problem-solving, attention to detail"
+}

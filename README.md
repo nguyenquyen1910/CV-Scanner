@@ -27,13 +27,23 @@
 
 ## 🛠️ Công nghệ sử dụng
 
-- **Python 3.8+**
+### Backend
+
+- **Python 3.11+**
 - **FastAPI** — Xây dựng RESTful API hiện đại, hiệu suất cao
 - **SQLAlchemy** — ORM cho thao tác database
 - **PostgreSQL** — Lưu trữ dữ liệu
 - **Azure OpenAI GPT-4.1** — Phân tích, đánh giá AI
 - **Swagger UI** — Tài liệu & thử nghiệm API trực quan
 - **pytest** — Unit test
+
+### Frontend
+
+- **Next.js 14** — React framework
+- **TypeScript** — Type-safe JavaScript
+- **Tailwind CSS** — Utility-first CSS framework
+- **Shadcn UI** — Component library
+- **Framer Motion** — Animation library
 
 ---
 
@@ -42,35 +52,27 @@
 ```
 CV Scanner Project/
 │
-├── src/
-│   ├── api/
-│   │   ├── main.py
-│   │   ├── upload.py
-│   │   └── routers/
-│   │       ├── cv_router.py
-│   │       ├── jd_router.py
-│   │       └── result_router.py
-│   ├── database/
-│   │   └── database.py
-│   ├── models/
-│   │   ├── base.py
-│   │   ├── cv.py
-│   │   ├── jd.py
-│   │   ├── analyst_result.py
-│   │   └── ...
-│   └── services/
-│       ├── cv_database_service.py
-│       ├── jd_service.py
-│       ├── analyst_matching_service.py
-│       └── ...
+├── backend/
+│   ├── src/
+│   │   ├── api/
+│   │   │   ├── main.py
+│   │   │   ├── upload.py
+│   │   │   └── routers/
+│   │   ├── database/
+│   │   ├── models/
+│   │   └── services/
+│   ├── requirements.txt
+│   └── Dockerfile
 │
-├── test/
-│   ├── test_analyst_matching.py
-│   └── result_jsons/
+├── frontend/
+│   ├── components/
+│   ├── pages/
+│   ├── public/
+│   ├── package.json
+│   └── Dockerfile
 │
-├── requirements.txt
-├── README.md
-└── .env (nếu có)
+├── docker-compose.yml
+└── README.md
 ```
 
 ---
@@ -84,41 +86,30 @@ git clone https://github.com/yourusername/cv-scanner-project.git
 cd cv-scanner-project
 ```
 
-### 2. Tạo và kích hoạt virtual environment
+### 2. Cấu hình môi trường
 
-```bash
-python -m venv venv
-# Trên Windows:
-venv\Scripts\activate
-# Trên Linux/Mac:
-source venv/bin/activate
+Tạo file `.env` ở thư mục gốc:
+
+```env
+$env:OPENROUTER_API_KEY="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"
+$env:OPENROUTER_MODEL="qwen/qwen3-235b-a22b"
 ```
 
-### 3. Cài đặt dependencies
+### 3. Chạy với Docker
 
 ```bash
-pip install -r requirements.txt
+# Build và chạy tất cả services
+docker-compose up --build
+
+# Chạy ở chế độ detached
+docker-compose up -d
 ```
 
-### 4. Cấu hình biến môi trường
+### 4. Truy cập ứng dụng
 
-Tạo file `.env` hoặc export biến môi trường:
-
-- `GITHUB_TOKEN`: API key cho AI service (hoặc key tương ứng)
-- Cấu hình database trong `src/database/database.py` nếu cần.
-
-### 5. Khởi tạo database
-
-- Đảm bảo PostgreSQL đã chạy.
-- Tạo database và các bảng (có thể dùng Alembic hoặc SQLAlchemy).
-
-### 6. Chạy server FastAPI
-
-```bash
-uvicorn src.api.main:app --reload
-```
-
-Truy cập tài liệu API tại: [http://localhost:8000/docs](http://localhost:8000/docs)
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
+- API Documentation: http://localhost:8000/docs
 
 ---
 
@@ -133,36 +124,12 @@ Truy cập tài liệu API tại: [http://localhost:8000/docs](http://localhost:
 
 ---
 
-## 🧩 Mô tả chi tiết các module
-
-### 1. **API Layer (FastAPI)**
-
-- Định nghĩa các endpoint RESTful cho upload, lưu, truy vấn CV/JD, phân tích AI, lấy kết quả.
-- Swagger UI tự động sinh tài liệu API.
-
-### 2. **Database Layer (SQLAlchemy + PostgreSQL)**
-
-- Các model: CV, JD, AnalystResult, Education, Experience, Skill, Certificate, Project...
-- Quản lý kết nối, session, migration (nên dùng Alembic nếu triển khai thực tế).
-
-### 3. **Service Layer**
-
-- Xử lý logic nghiệp vụ: lưu, truy vấn, phân tích, so sánh, chấm điểm.
-- Tích hợp AI: Gửi dữ liệu lên GPT-4.1, nhận kết quả, xử lý và lưu lại.
-
-### 4. **AI Integration**
-
-- Gửi prompt và dữ liệu lên endpoint GPT-4.1 (Azure OpenAI hoặc tương thích).
-- Nhận kết quả phân tích, điểm số, nhận xét.
-
----
-
 ## 📝 Ví dụ request/response
 
 ### 1. Upload CV
 
-**Request:**  
-`POST /upload-cv/`  
+**Request:**
+`POST /upload-cv/`
 Body: file PDF
 
 **Response:**
@@ -181,25 +148,10 @@ Body: file PDF
 }
 ```
 
-### 2. Lưu CV
+### 2. Phân tích AI
 
-**Request:**  
-`POST /cv-storage/save-cv`  
-Body: JSON thông tin CV
-
-**Response:**
-
-```json
-{
-  "message": "CV saved successfully",
-  "cv_id": 1
-}
-```
-
-### 3. Phân tích AI
-
-**Request:**  
-`POST /result-storage/analyze`  
+**Request:**
+`POST /result-storage/analyze`
 Body:
 
 ```json
@@ -252,7 +204,7 @@ Body:
 
 ---
 
-## 🔗 Một số API tiêu biểu
+## 🔗 API Endpoints
 
 | Method | Endpoint              | Chức năng                    |
 | ------ | --------------------- | ---------------------------- |
@@ -278,7 +230,7 @@ pytest test/
 
 ## 💡 Đóng góp
 
-Mọi đóng góp, issue hoặc pull request đều được hoan nghênh!  
+Mọi đóng góp, issue hoặc pull request đều được hoan nghênh!
 Vui lòng tạo issue hoặc PR trên Github để cùng phát triển dự án.
 
 ---

@@ -1,0 +1,8 @@
+{
+  "education_score": 30,
+  "experience_score": 100,
+  "skill_score": 80,
+  "total_score": 57,
+  "comment": "The candidate demonstrates strong technical leadership with 7+ years in backend engineering, cloud infrastructure (K8S, Docker, AWS/GCP), and high-impact projects (e.g., $2M+ presale). However, lacks direct experience in OCR tools (Tesseract/OpenCV) and image processing required for this role. Deep proficiency in Python frameworks (Django/Flask) and system scalability aligns with backend demands, but gaps in document parsing and OCR-specific skills may require additional training. Well-suited for senior backend roles but less ideal for OCR-focused positions.",
+  "analyzed_at": "2025-05-20T12:23:00.666020"
+}

@@ -1,4 +1,12 @@
-# Using python 3.11.0 slim image
+# Build frontend
+FROM node:18-alpine AS frontend-builder
+WORKDIR /app/frontend
+COPY frontend/package*.json ./
+RUN npm install
+COPY frontend/ .
+RUN npm run build
+
+# Backend
 FROM python:3.11.0-slim
 
 # Set environment variables
@@ -10,26 +18,33 @@ ENV PYTHONUNBUFFERED=1 \
 # Set working directory
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y -no-install-recommends \
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements
-COPY requirements.txt .
+COPY backend/requirements.txt .
 
-# Install dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy full project
-COPY . .
+# Create uploads directory
+RUN mkdir -p uploads && chmod 777 uploads
 
-# Create user not root
+# Copy backend code
+COPY backend/ .
+
+# Copy frontend build
+COPY --from=frontend-builder /app/frontend/.next /app/static
+
+# Create non-root user
 RUN adduser --disabled-password --gecos '' appuser
 USER appuser
 
 # Expose port
 EXPOSE 8000
 
-# CMD
+# Start command
 CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

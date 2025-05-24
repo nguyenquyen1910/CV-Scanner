@@ -1,0 +1,220 @@
+{
+  "education": [
+    {
+      "school": "university of science - vnuhcm",
+      "degree": "bachelor of science",
+      "major": "information technology",
+      "start_year": "01-05-2011",
+      "end_year": "01-05-2016",
+      "description": "",
+      "grade": ""
+    }
+  ],
+  "experience": [
+    {
+      "company": "german software intelligence llc",
+      "position": "technical leader",
+      "start_date": "01-07-2022",
+      "end_date": "01-08-2023",
+      "description": "i have conducted research to develop solutions for expanding features within bim drawing construction applications. my work involved supporting programmers in approaching emerging technologies, refactoring and optimizing code, and establishing an internal erp system. team size: 15 programming languages: python, c#, and javascript. integration systems: powerbi and sds2 for integrating data visualization and structural steel detailing into the application. support systems: managed code repositories and project tracking using bitbucket and jira."
+    },
+    {
+      "company": "drkumo inc.",
+      "position": "python software developer (team leader)",
+      "start_date": "01-08-2021",
+      "end_date": "01-07-2022",
+      "description": "i have experience in developing web services within the remote healthcare ecosystem, with a focus on integrating iot devices for inventory management and establishing an internal erp system encompassing customer relationship management (crm) and human resources (hr). team size: 7 programming languages: python and javascript. integration systems: windows active directory for user authentication and access control. utilized rabbitmq for message queuing and communication between different components. leveraged postgresql for efficient data storage and retrieval. support systems: gitlab, docker, kubernetes, aws."
+    },
+    {
+      "company": "viet tinh anh jsc",
+      "position": "senior python developer",
+      "start_date": "01-05-2020",
+      "end_date": "01-06-2021",
+      "description": "i have joined in developing web gateway services to seamlessly connect internal management systems with various e-commerce platforms such as shopee, lazada, tiki, and logistics providers like viettel post and ghn (third-party logistics). programming language: python. integration systems: microsoft dynamic ax, laravel, mssql server and postgresql. support systems: github, aws."
+    },
+    {
+      "company": "feos software ltd.",
+      "position": "python developer",
+      "start_date": "01-04-2017",
+      "end_date": "01-04-2020",
+      "description": "i have actively contributed to various customer-driven application development projects, and here are some notable examples: asia holidays project: tour management website - developed a comprehensive website for managing ticket sales and tour bookings for asia holidays. - programming language: python and javascript. - gitlab for version control. - hosted the application on aws. we deliver project: f&b e-commerce system and mobile web service - played a key role in developing an end-to-end e-commerce system, including a website, mobile app, e-wallet, and payment gateway solution for the we deliver chain of f&b stores. - programming language: python and javascript. - integrated the project with google cloud platform (gcp) for efficient cloud-based services. - integrated the onepay payment gateway for secure and seamless payment processing. - managed code repositories and collaboration using gitlab. - hosted the application on aws."
+    }
+  ],
+  "skill": [
+    {
+      "skill_name": "Python",
+      "description": "Developing solutions for expanding features within BIM drawing construction applications, supporting programmers in approaching emerging technologies, refactoring and optimizing code."
+    },
+    {
+      "skill_name": "C#",
+      "description": "Developing solutions for expanding features within BIM drawing construction applications, supporting programmers in approaching emerging technologies, refactoring and optimizing code."
+    },
+    {
+      "skill_name": "JavaScript",
+      "description": "Developing solutions for expanding features within BIM drawing construction applications, supporting programmers in approaching emerging technologies, refactoring and optimizing code."
+    },
+    {
+      "skill_name": "PowerBI",
+      "description": "Integrating data visualization into the application."
+    },
+    {
+      "skill_name": "SDS2",
+      "description": "Integrating structural steel detailing into the application."
+    },
+    {
+      "skill_name": "Bitbucket",
+      "description": "Managed code repositories."
+    },
+    {
+      "skill_name": "Jira",
+      "description": "Project tracking."
+    },
+    {
+      "skill_name": "Python",
+      "description": "Developing web services within the remote healthcare ecosystem, focusing on integrating IoT devices for inventory management and establishing an internal ERP system encompassing Customer Relationship Management (CRM) and Human Resources (HR)."
+    },
+    {
+      "skill_name": "JavaScript",
+      "description": "Developing web services within the remote healthcare ecosystem, focusing on integrating IoT devices for inventory management and establishing an internal ERP system encompassing Customer Relationship Management (CRM) and Human Resources (HR)."
+    },
+    {
+      "skill_name": "Windows Active Directory",
+      "description": "Employed for user authentication and access control."
+    },
+    {
+      "skill_name": "RabbitMQ",
+      "description": "Utilized for message queuing and communication between different components."
+    },
+    {
+      "skill_name": "PostgreSQL",
+      "description": "Leveraged for efficient data storage and retrieval."
+    },
+    {
+      "skill_name": "GitLab",
+      "description": "Support system for code management."
+    },
+    {
+      "skill_name": "Docker",
+      "description": "Support system for containerization."
+    },
+    {
+      "skill_name": "Kubernetes",
+      "description": "Support system for orchestration."
+    },
+    {
+      "skill_name": "AWS",
+      "description": "Support system for cloud infrastructure."
+    },
+    {
+      "skill_name": "Python",
+      "description": "Developing web gateway services to seamlessly connect internal management systems with various e-commerce platforms such as Shopee, Lazada, Tiki, and logistics providers like Viettel Post and GHN (Third-Party Logistics)."
+    },
+    {
+      "skill_name": "Microsoft Dynamic AX",
+      "description": "Integration into the project."
+    },
+    {
+      "skill_name": "Laravel",
+      "description": "Integration into the project."
+    },
+    {
+      "skill_name": "MSSQL Server",
+      "description": "Integration into the project."
+    },
+    {
+      "skill_name": "PostgreSQL",
+      "description": "Integration into the project."
+    },
+    {
+      "skill_name": "GitHub",
+      "description": "Support system for code repositories."
+    },
+    {
+      "skill_name": "AWS",
+      "description": "Support system for cloud infrastructure."
+    },
+    {
+      "skill_name": "Python",
+      "description": "Developing a comprehensive website for managing ticket sales and tour bookings for Asia Holidays; developing an end-to-end e-commerce system, including a website, mobile app, e-wallet, and payment gateway solution for the We Deliver chain of F&B stores."
+    },
+    {
+      "skill_name": "JavaScript",
+      "description": "Developing a comprehensive website for managing ticket sales and tour bookings for Asia Holidays; developing an end-to-end e-commerce system, including a website, mobile app, e-wallet, and payment gateway solution for the We Deliver chain of F&B stores."
+    },
+    {
+      "skill_name": "GitLab",
+      "description": "Version control and collaboration."
+    },
+    {
+      "skill_name": "AWS",
+      "description": "Hosting the application."
+    },
+    {
+      "skill_name": "Google Cloud Platform (GCP)",
+      "description": "Integration for efficient cloud-based services."
+    },
+    {
+      "skill_name": "OnePay Payment Gateway",
+      "description": "Integration for secure and seamless payment processing."
+    }
+  ],
+  "certificate": [],
+  "project": [
+    {
+      "name": "German Software Intelligence LLC",
+      "role": "Technical Leader",
+      "start_date": "07-2022",
+      "end_date": "08-2023",
+      "description": "Conducted research to develop solutions for expanding features within BIM drawing construction applications. Supported programmers in adopting emerging technologies, refactored and optimized code, and established an internal ERP system.",
+      "technologies": "Python, C#, JavaScript, PowerBI, SDS2, Bitbucket, Jira",
+      "url": ""
+    },
+    {
+      "name": "DrKumo Inc.",
+      "role": "Python Software Developer (Team Leader)",
+      "start_date": "08-2021",
+      "end_date": "07-2022",
+      "description": "Developed web services in a remote healthcare ecosystem, integrated IoT devices for inventory management, and established an internal ERP system (CRM and HR).",
+      "technologies": "Python, JavaScript, RabbitMQ, PostgreSQL, GitLab, Docker, Kubernetes, AWS",
+      "url": ""
+    },
+    {
+      "name": "Viet Tinh Anh JSC",
+      "role": "Senior Python Developer",
+      "start_date": "05-2020",
+      "end_date": "06-2021",
+      "description": "Developed web gateway services connecting internal systems to e-commerce platforms (Shopee, Lazada, Tiki) and logistics providers (Viettel Post, GHN).",
+      "technologies": "Python, Microsoft Dynamic AX, Laravel, MSSQL Server, PostgreSQL, GitHub, AWS",
+      "url": ""
+    },
+    {
+      "name": "Asia Holidays Project",
+      "role": "Python Developer",
+      "start_date": "04-2017",
+      "end_date": "04-2020",
+      "description": "Developed a tour management website for ticket sales and bookings. Hosted the application on AWS.",
+      "technologies": "Python, JavaScript, GitLab, AWS",
+      "url": ""
+    },
+    {
+      "name": "We Deliver Project",
+      "role": "Python Developer",
+      "start_date": "04-2017",
+      "end_date": "04-2020",
+      "description": "Developed an end-to-end e-commerce system (website, mobile app, e-wallet, payment gateway) for F&B stores. Integrated with Google Cloud Platform and OnePay Payment Gateway. Hosted the application on AWS.",
+      "technologies": "Python, JavaScript, Google Cloud Platform, OnePay, GitLab, AWS",
+      "url": ""
+    }
+  ],
+  "base_information": [
+    {
+      "fullname": "Võ Hoàng Vũ",
+      "email": "vu.vh87@gmail.com",
+      "gender": "Male",
+      "date_of_birth": "11-08-1987",
+      "phone": "0938130243",
+      "address": "33 4 đường số 1, P.4, Q.GV, TP.HCM",
+      "summary": "A highly motivated software developer with 8+ years of experience in technical leadership and system integration. Demonstrates strong commitment to continuous skill improvement and creating high-quality applications. Proven track record in leading teams (15 members), implementing ERP systems, and integrating emerging technologies like PowerBI/SDS2 for BIM applications. Experienced in IoT healthcare ecosystems, e-commerce platforms, and cloud solutions (AWS/GCP). Technically proficient in Python/C#/JavaScript with expertise in data optimization, code refactoring, and system architecture. Career-oriented towards impactful contributions to organizational growth through technological innovation. Shows professional maturity in balancing competitive compensation expectations with workplace achievement recognition."
+    }
+  ]
+}
